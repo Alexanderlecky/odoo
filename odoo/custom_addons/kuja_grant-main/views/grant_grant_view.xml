@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_grant_grant_search" model="ir.ui.view">
+            <field name="name">grant.grant.search</field>
+            <field name="model">grant.grant</field>
+            <field name="arch" type="xml">
+                <search string="Search Grant">
+                    <field name="title" filter_domain="[('title', 'ilike', self)]"/>
+                    <field name="donor_name" filter_domain="[('donor_name', 'ilike', self)]"/>
+                    <filter string="Creation Date" name="create_date" date="create_date"/>
+                    <filter string="Deadline" name="deadline" date="deadline"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <separator/>
+                    <group expand="0" name="group_by" string="Group By">
+                        <filter name="donor_name" string="Donor Name" domain="[]" context="{'group_by' : 'donor_name'}" />
+                        <filter name="focus_area" string="Focus Area" domain="[]" context="{'group_by' : 'focus_area'}" />
+                        <filter name="geographic_area" string="Geographic Area" domain="[]" context="{'group_by' : 'geographic_area'}" />
+                        <filter name="eligibility" string="Eligibility" domain="[]" context="{'group_by' : 'eligibility'}" />
+                        <filter name="source_url" string="Source" domain="[]" context="{'group_by' : 'source_url'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_grant_grant_tree" model="ir.ui.view">
+            <field name="name">grant.grant.tree</field>
+            <field name="model">grant.grant</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="title"/>
+                    <field name="donor_name"/>
+                    <field name="deadline"/>
+                    <field name="amount_from"/>
+                    <field name="amount_to"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_grant_grant_form" model="ir.ui.view">
+            <field name="name">grant.grant.form</field>
+            <field name="model">grant.grant</field>
+            <field name="arch" type="xml">
+                <form string="Grant">
+                    <header>
+                        <button name="action_approve" id="action_approve" data-hotkey="d"
+                            string="Approve" class="btn-primary" type="object"  invisible="state != 'draft'"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,approved"/>
+                    </header>
+                    <sheet>
+                        <div name="button_box" position="inside">
+                            <button class="oe_stat_button" type="object" name="action_view_user_likes" groups="base.group_user" icon="fa-thumbs-o-up">
+                                <field string="Likes" name="user_likes_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="title" placeholder="Title of the Grant"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="donor_name"/>
+                                <field name="amount_from"/>
+                            </group>
+                            <group>
+                                <field name="currency_id"/>
+                                <field name="amount_to"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="focus_area" widget="many2many_tags"/>
+                                <field name="geographic_area" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="eligibility" widget="many2many_tags"/>
+                                <field name="source_url" widget="url"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="active"/>
+                            </group>
+                            <group>
+                                <field name="deadline"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_grant_grant" model="ir.actions.act_window">
+            <field name="name">Grants</field>
+            <field name="res_model">grant.grant</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a grant
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

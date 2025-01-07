@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_grant" name="Kuja Grants" sequence="1" groups="base.group_user" web_icon="kuja_grant,static/description/icon.png">
+        <menuitem id="menu_grant_grant" name="All Grants" action="action_grant_grant" sequence="1"/>
+        <menuitem id="menu_grant_focus_area" name="Focus Area" action="action_grant_focus_area" sequence="2"/>
+        <menuitem id="menu_grant_geographic_area" name="Geographic Areas" action="action_grant_geographic_area" sequence="3"/>
+        <menuitem id="menu_grant_eligibility" name="Eligibility" action="action_grant_eligibility" sequence="4"/>
+    </menuitem>
+</odoo>

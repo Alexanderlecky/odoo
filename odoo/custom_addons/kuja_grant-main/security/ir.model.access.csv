@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+grant_grant,grant_grant,model_grant_grant,base.group_user,1,1,1,1
+grant_focus_area,grant_focus_area,model_grant_focus_area,base.group_user,1,1,1,1
+grant_geographic_area,grant_geographic_area,model_grant_geographic_area,base.group_user,1,1,1,1
+grant_eligibility,grant_eligibility,model_grant_eligibility,base.group_user,1,1,1,1

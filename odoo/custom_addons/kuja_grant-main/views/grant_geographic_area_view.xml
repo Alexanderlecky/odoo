@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_grant_geographic_area_tree" model="ir.ui.view">
+            <field name="name">grant.geographic.area.tree</field>
+            <field name="model">grant.geographic.area</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_grant_geographic_area_form" model="ir.ui.view">
+            <field name="name">grant.geographic.area.form</field>
+            <field name="model">grant.geographic.area</field>
+            <field name="arch" type="xml">
+                <form string="Geographic Area">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_grant_geographic_area" model="ir.actions.act_window">
+            <field name="name">Geographic Areas</field>
+            <field name="res_model">grant.geographic.area</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a grant geographic area
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

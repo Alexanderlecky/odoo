@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="partner_type"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="act_grant_res_users" model="ir.actions.act_window">
+        <field name="name">User Likes</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">list</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                User Likes
+            </p>
+        </field>
+    </record>
+
+    </data>
+</odoo>
