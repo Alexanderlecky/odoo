@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menu Items -->
+    <menuitem id="menu_grant_assistant_root" name="Grant Assistant" sequence="99" />
+    <menuitem id="menu_grant_management" name="Management" parent="menu_grant_assistant_root" sequence="99" />
+    <menuitem id="menu_grant_reports" name="Reports" parent="menu_grant_assistant_root" sequence="99" />
+
+    <!-- Tree View -->
+    <record id="view_grant_tree" model="ir.ui.view">
+        <field name="name">grant.tree</field>
+        <field name="model">grant.assistant</field>
+        <field name="arch" type="xml">
+            <tree string="Grants">
+                <field name="name"/>
+                <field name="amount"/>
+                <field name="status"/>
+                <field name="submission_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_grant_form" model="ir.ui.view">
+        <field name="name">grant.form</field>
+        <field name="model">grant.assistant</field>
+        <field name="arch" type="xml">
+            <form string="Grant">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="amount"/>
+                        <field name="status"/>
+                        <field name="submission_date"/>
+                        <field name="description" widget="html"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_grant_assistant" model="ir.actions.act_window">
+        <field name="name">Grant Assistant</field>
+        <field name="res_model">grant.assistant</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_grant_tree"/>
+    </record>
+
+</odoo>

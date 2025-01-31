@@ -1,0 +1,31 @@
+<odoo>
+
+    
+    <menuitem id="menu_t_shop_root"
+              name="T_SHOP"
+    />
+
+
+    <record id="action_t_shop_cart"
+            model="ir.actions.act_window">
+        <field name="name">Shopping Cart</field>
+        <field name="res_model">t_shop</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+
+
+    <menuitem id="menu_cart"
+              name="Cart"
+              parent="menu_t_shop_root"
+              action="action_t_shop_cart"
+    />
+
+
+    <menuitem id="menu_order"
+              name="Order"
+              parent="menu_cart"
+    />
+
+</odoo>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem id="menu_grant_ai_assistant_root"
+              name="AI GRANT"
+
+    />
+
+    <menuitem id="menu_grant"
+              name="Grant"
+              parent="menu_grant_ai_assistant"
+              action="action_grant_ai_assistant"
+    />
+
+</odoo>

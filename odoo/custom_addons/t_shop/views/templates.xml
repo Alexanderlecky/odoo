@@ -1,0 +1,21 @@
+<odoo>
+    <template id="shop_page" name="Shop Page">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1>Our Products</h1>
+                <t t-foreach="products" t-as="product">
+                    <div class="product">
+                        <h2><t t-esc="product.name"/></h2>
+                        <p><t t-esc="product.description"/></p>
+                        <span>Price: <t t-esc="product.price"/> $</span>
+
+                        <!-- Image Display -->
+                        <img t-att-src="'/t_shop/static/description/icon.png'"
+                             alt="Product Image" class="product-image"/>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>
+
